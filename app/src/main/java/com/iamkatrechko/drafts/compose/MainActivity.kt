@@ -11,6 +11,8 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 
 class MainActivity : AppCompatActivity() {
@@ -24,18 +26,18 @@ class MainActivity : AppCompatActivity() {
                 Column {
                     Text(text = "Hello", color = MaterialTheme.colors.onSurface)
 
-                    val colorToggleState = remember { mutableStateOf(true) }
-                    val colorState = animateColorAsState(if (colorToggleState.value) MaterialTheme.colors.onSurface else Color.Green, animationSpec = tween(2000))
-                    val secondTextState = remember { mutableStateOf("World") }
-                    Text(text = secondTextState.value, color = colorState.value)
+                    var colorToggleState by remember { mutableStateOf(true) }
+                    val colorState by animateColorAsState(if (colorToggleState) MaterialTheme.colors.onSurface else Color.Green, animationSpec = tween(2000))
+                    var secondTextState by remember { mutableStateOf("World") }
+                    Text(text = secondTextState, color = colorState)
                     Button({
-                        secondTextState.value = "User"
-                        colorToggleState.value = !colorToggleState.value
+                        secondTextState = "User"
+                        colorToggleState = !colorToggleState
                     }) {
                         Text("Click me")
                     }
-                    val textState = remember { mutableStateOf(2) }
-                    TextButton(textState.value) { textState.value += 1 }
+                    var textState by remember { mutableStateOf(2) }
+                    TextButton(textState) { textState++ }
                 }
             }
         }
