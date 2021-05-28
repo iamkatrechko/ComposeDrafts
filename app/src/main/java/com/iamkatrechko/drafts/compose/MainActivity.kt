@@ -8,6 +8,7 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.*
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
@@ -33,8 +34,17 @@ class MainActivity : AppCompatActivity() {
                     }) {
                         Text("Click me")
                     }
+                    val textState = remember { mutableStateOf(2) }
+                    TextButton(textState.value) { textState.value += 1 }
                 }
             }
         }
+    }
+}
+
+@Composable
+fun TextButton(num: Int, onClick: () -> Unit) {
+    Button(onClick) {
+        Text("Count: $num")
     }
 }
