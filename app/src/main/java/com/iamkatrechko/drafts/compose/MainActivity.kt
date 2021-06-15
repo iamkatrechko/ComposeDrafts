@@ -1,5 +1,6 @@
 package com.iamkatrechko.drafts.compose
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
@@ -38,6 +39,11 @@ class MainActivity : AppCompatActivity() {
                     }
                     var textState by remember { mutableStateOf(2) }
                     TextButton(textState) { textState++ }
+                    Button({
+                        startActivity(Intent(this@MainActivity, PointerInputActivity::class.java))
+                    }) {
+                        Text("PointerInput")
+                    }
                 }
             }
         }
