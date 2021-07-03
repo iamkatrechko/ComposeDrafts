@@ -44,12 +44,12 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.5.0'
+    implementation 'androidx.core:core-ktx:1.6.0'
     implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     // Compose
@@ -64,7 +64,7 @@ dependencies {
     implementation "androidx.compose.material:material-icons-core:$compose_version"
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
     // Integration with activities
-    implementation 'androidx.activity:activity-compose:1.3.0-beta02'
+    implementation 'androidx.activity:activity-compose:1.3.0-rc01'
     // Integration with ViewModels
     implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07'
     // Integration with observables
