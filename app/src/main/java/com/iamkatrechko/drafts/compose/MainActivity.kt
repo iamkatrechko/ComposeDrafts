@@ -44,6 +44,11 @@ class MainActivity : AppCompatActivity() {
                     }) {
                         Text("PointerInput")
                     }
+                    Button({
+                        startActivity(Intent(this@MainActivity, ThemeActivity::class.java))
+                    }) {
+                        Text("Themes")
+                    }
                 }
             }
         }
